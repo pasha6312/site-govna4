@@ -1,0 +1,915 @@
+@font-face {
+  font-family: "TT Lakes Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("TT Lakes Regular"), url("fonts/TTLakes-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "TT Lakes Medium";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/TTLakes-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "TT Lakes Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/TTLakes-Bold.woff") format("woff");
+}
+body {
+  font-family: "TT Lakes Regular", "TT Lakes Medium", "TT Lakes Bold", sans-serif;
+  background-color: #F8F8F8;
+  margin: 0;
+}
+
+.my-swiper {
+  display: none;
+  opacity: 0;
+}
+
+.swiper-pagination {
+  width: 100%;
+  height: -20px;
+  text-align: center;
+  display: flex;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin: 0 4px;
+  background: #DDDDDD;
+  opacity: 0.4;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #B5B6BC;
+}
+
+.order {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  padding: 0 12px;
+  background: #FF3E79;
+  width: 95px;
+  height: 32px;
+  border-radius: 16px;
+  text-decoration: none;
+}
+
+.highlight {
+  display: flex;
+  position: relative;
+  align-self: flex-end;
+  width: 3px;
+  height: 40px;
+  border-radius: 30%;
+  background-color: #41F6D7;
+  font-weight: bold;
+}
+
+.nav-content {
+  display: block;
+  height: 100%;
+  width: 320px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  z-index: 1;
+}
+.nav-content__top {
+  display: flex;
+  margin: 24px;
+  justify-content: space-between;
+}
+.nav-content__top_left {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.nav-content__top_left .logo {
+  margin-left: 16px;
+}
+.nav-content__top_right {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.nav-content__middle {
+  display: grid;
+  margin-left: 24px;
+  margin-top: 50px;
+}
+.nav-content__middle a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #1B1C21;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  margin-bottom: 32px;
+}
+.nav-content__middle a .highlight {
+  position: absolute;
+  left: 200px;
+  border: 10px solid red;
+}
+.nav-content__bottom {
+  display: grid;
+  margin-top: 240px;
+  margin-left: 20px;
+}
+.nav-content__bottom_contacts {
+  display: flex;
+}
+.nav-content__bottom_contacts_message {
+  margin: 0 16px;
+}
+.nav-content__bottom_email {
+  display: grid;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: #1B1C21;
+  margin-top: 12px;
+}
+.nav-content__bottom_number {
+  display: flex;
+  color: #1B1C21;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  margin-top: 16px;
+}
+.nav-content__bottom_language {
+  display: flex;
+  color: #7E7E82;
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.96);
+  z-index: 1;
+}
+
+.feedback__block, .call__block {
+  display: block;
+  height: 100%;
+  width: 440px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  z-index: 1;
+  border-left: 1px solid #D9FFF5;
+}
+.feedback__block_x, .call__block_x {
+  position: fixed;
+  right: 472px;
+  z-index: 2;
+}
+.feedback__block_content, .call__block_content {
+  display: grid;
+  margin: 40px 32px;
+}
+.feedback__block_title, .call__block_title {
+  font-family: "TT Lakes";
+  color: #1B1C21;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  margin-bottom: 24px;
+}
+.feedback__block_form, .call__block_form {
+  display: grid;
+  font-size: 0;
+}
+.feedback__block_form input, .call__block_form input {
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 12px 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  margin-bottom: 16px;
+}
+.feedback__block_form textarea, .call__block_form textarea {
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 12px 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  height: 118px;
+  resize: none;
+  margin-bottom: 16px;
+}
+.feedback__block_form_about, .call__block_form_about {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: #B5B6BC;
+}
+.feedback__block_form_about a, .call__block_form_about a {
+  color: #FF3E79;
+  text-decoration: none;
+}
+.feedback__block_form_send, .call__block_form_send {
+  width: 108px;
+  height: 32px;
+  justify-content: space-between;
+  display: flex;
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.15px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.upper-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  height: 88px;
+  width: 100%;
+  font-size: 100px;
+  color: white;
+  justify-content: space-between;
+}
+.upper-menu__left {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  margin: auto 0 auto 24px;
+  min-width: 186px;
+}
+.upper-menu__left .divider {
+  margin: auto 20px;
+  overflow: hidden;
+}
+.upper-menu__right {
+  display: flex;
+  margin: auto 24px auto 0;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.upper-menu__right .divider {
+  margin: auto 20px;
+  overflow: auto;
+}
+.upper-menu__right_contacts {
+  display: flex;
+}
+.upper-menu__right_contacts .upper-menu__message {
+  margin: 0 16px;
+}
+.upper-menu__right_service {
+  display: flex;
+}
+.upper-menu__right_service .upper-menu__request {
+  margin-right: 16px;
+}
+
+.btn {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FF3E79;
+  text-align: center;
+  cursor: pointer;
+}
+.btn .btn_img {
+  display: flex;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 25%;
+  left: 25%;
+}
+
+button,
+button:active,
+button:focus {
+  border: none;
+  outline: none;
+}
+
+.logo {
+  display: flex;
+  width: 96px;
+  height: 50px;
+  top: 18.6px;
+  left: 72.7px;
+  border-width: 0.5px;
+}
+
+.divider {
+  display: flex;
+  width: 2px;
+  height: 32px;
+  border-radius: 1px;
+  background: #EAEAEA;
+}
+
+.page-service {
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 0 0 0;
+  align-items: center;
+  padding: 0;
+  font-weight: bold;
+  font-size: 28px;
+}
+.page-service p {
+  display: flex;
+  margin-left: 24px;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.slide-menu__list {
+  display: flex;
+  margin-left: 34px;
+  overflow: hidden;
+  list-style: none;
+  font-size: 16px;
+  vertical-align: center;
+  align-items: center;
+  color: #7E7E82;
+}
+.slide-menu__list_item {
+  white-space: nowrap;
+  padding: 16px 16px;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  list-style: none;
+  color: #7E7E82;
+}
+.slide-menu__list_item:visited {
+  color: #7E7E82;
+}
+.slide-menu__list_item:hover {
+  border: 2px solid #B8FFEC;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+}
+
+.about {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: 34px;
+}
+.about__description {
+  font-size: 14px;
+  color: #1B1C21;
+  min-width: 320px;
+  width: 50%;
+}
+.about__description_extra {
+  display: flex;
+  vertical-align: center;
+  align-items: center;
+}
+.about__company {
+  width: 50%;
+  max-width: 400px;
+  min-width: 320px;
+}
+
+.arrow-block {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.arrow-block__arrow_1 {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #41F6D7;
+  border-right: 2px solid #41F6D7;
+  rotate: 135deg;
+}
+.arrow-block__arrow_2 {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #41F6D7;
+  border-right: 2px solid #41F6D7;
+  rotate: 135deg;
+}
+
+.brands {
+  margin: 0;
+}
+.brands__title {
+  color: #7E7E82;
+  margin: 24px 16px 24px 32px;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.brands__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 16px 32px;
+}
+.brands__list_item {
+  display: flex;
+  width: 208px;
+  height: 40px;
+  vertical-align: center;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #EAEAEA;
+  border-radius: 6px;
+  padding: 16px;
+  background-color: #FFFFFF;
+}
+.brands__more {
+  margin-left: 32px;
+}
+
+.circle-arrow {
+  display: block;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #FF3E79;
+}
+.circle-arrow__inside {
+  position: relative;
+  top: 30%;
+  left: 25%;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #FF3E79;
+  border-right: 3px solid #FF3E79;
+  rotate: 45deg;
+  border-radius: 15%;
+}
+.circle-arrow__inside_order {
+  position: relative;
+  top: 25%;
+  left: 20%;
+  width: 8px;
+  height: 9px;
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  rotate: 45deg;
+  border-radius: 10%;
+}
+.circle-arrow__inside_commercial-offer {
+  position: relative;
+  top: 40%;
+  left: 20%;
+  width: 4px;
+  height: 4px;
+  border-top: 2.5px solid #FF3E79;
+  border-right: 2.5px solid #FF3E79;
+  rotate: 45deg;
+  border-radius: 10%;
+}
+.circle-arrow_commercial-offer {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.circle-arrow_order {
+  display: block;
+  border: 2px solid #FF3E79;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.read-more {
+  display: flex;
+  vertical-align: center;
+  align-items: center;
+}
+
+.equipment-repair {
+  margin-left: 32px;
+  margin-top: 32px;
+}
+.equipment-repair__title {
+  color: #7E7E82;
+  padding: 16px 0;
+  text-transform: uppercase;
+}
+.equipment-repair__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 24px;
+}
+.equipment-repair__list_item {
+  position: relative;
+  display: block;
+  width: 240px;
+  height: 160px;
+  border: 1px solid #EAEAEA;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+}
+.equipment-repair__list_item p {
+  color: #1B1C21;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  margin: 0;
+  font-size: 16px;
+}
+.equipment-repair__list_item .circle-arrow {
+  display: block;
+  position: absolute;
+  margin: 0;
+  right: 16px;
+  bottom: 16px;
+}
+.equipment-repair .read-more {
+  margin: 24px 0 0 0;
+}
+
+.price {
+  display: grid;
+  border-top: 1px solid #D9FFF5;
+  margin-left: 32px;
+  margin-top: 50px;
+}
+.price__title {
+  font-size: 16px;
+  color: #7E7E82;
+  text-transform: uppercase;
+}
+.price__repair-service {
+  display: grid;
+  margin: 31px 0 0 0;
+}
+.price__repair-service_title {
+  display: flex;
+  margin-right: 32px;
+  justify-content: space-between;
+}
+.price__repair-service_title p {
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #7E7E82;
+}
+.price__repair-service_title .feature {
+  width: 119px;
+  margin-right: 24px;
+}
+.price__repair-service_block {
+  display: grid;
+  background-color: #FFFFFF;
+  margin-right: 32px;
+  margin-top: 16px;
+}
+.price__repair-service_block .service_line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23px 0;
+  border-bottom: 1px solid #EAEAEA;
+  flex-wrap: nowrap;
+}
+.price__repair-service_block .service_line:nth-last-child(1) {
+  border-bottom: none;
+}
+.price__repair-service_service {
+  position: relative;
+  margin-left: 24px;
+  width: 348px;
+}
+.price__repair-service_price {
+  display: grid;
+  grid-template-columns: 100%;
+  align-items: center;
+  width: 74px;
+}
+.price__repair-service_date {
+  width: 81px;
+  white-space: nowrap;
+}
+.price__repair-service .order {
+  margin-right: 24px;
+}
+.price__additionally {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  margin-left: 24px;
+  max-width: 420px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+.price__commercial-offer {
+  display: flex;
+  color: #1B1C21;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  margin-top: 16px;
+  margin-left: 24px;
+  text-decoration: none;
+  max-width: 316px;
+  min-width: 192px;
+}
+
+footer {
+  display: flex;
+  border-top: 1px solid #D9FFF5;
+  font-size: 14px;
+  line-height: 16px;
+  color: #7E7E82;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 32px 24px;
+}
+footer .copyright {
+  width: 33%;
+}
+footer .privacy {
+  width: 33%;
+}
+footer .public-offer {
+  width: 33%;
+  flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .upper-menu {
+    display: none;
+  }
+  body {
+    background-color: white;
+  }
+  main {
+    background-color: #F8F8F8;
+    position: relative;
+    left: 320px;
+    margin-right: 320px;
+  }
+  footer {
+    position: relative;
+    left: 320px;
+    margin-right: 320px;
+  }
+  .nav-content {
+    display: block;
+    height: 100%;
+    width: 320px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .nav-content__top {
+    display: flex;
+    margin: 24px;
+    justify-content: space-between;
+  }
+  .nav-content__top_left {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .nav-content__top_left_x {
+    display: none;
+  }
+  .nav-content__top_left .logo {
+    margin-left: 0;
+  }
+  .nav-content__top_right {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .nav-content__middle {
+    display: grid;
+    margin-left: 24px;
+    margin-top: 50px;
+  }
+  .nav-content__middle a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #1B1C21;
+    letter-spacing: -0.2px;
+    line-height: 24px;
+    margin-bottom: 32px;
+  }
+  .nav-content__middle a .highlight {
+    position: absolute;
+    left: 200px;
+    border: 10px solid red;
+  }
+  .nav-content__bottom {
+    display: grid;
+    margin-top: 0px;
+    margin-left: 20px;
+  }
+  .nav-content__bottom_contacts {
+    display: flex;
+  }
+  .nav-content__bottom_contacts_message {
+    margin: 0 16px;
+  }
+  .nav-content__bottom_email {
+    display: grid;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #1B1C21;
+    margin-top: 12px;
+  }
+  .nav-content__bottom_number {
+    display: flex;
+    color: #1B1C21;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.6px;
+    margin-top: 16px;
+  }
+  .nav-content__bottom_language {
+    display: flex;
+    color: #7E7E82;
+    font-size: 16px;
+    margin-top: 0px;
+  }
+}
+@media (max-width: 400px) {
+  .my-swiper {
+    display: flex;
+    opacity: 1;
+    margin-left: 32px;
+    margin-bottom: -32px;
+  }
+  .brands__list {
+    display: none;
+  }
+  .equipment-repair__list {
+    display: none;
+  }
+  .read-more {
+    display: none;
+  }
+  .about__description_extra {
+    display: flex;
+  }
+  .swiper {
+    padding-bottom: 32px;
+  }
+  .swiper-pagination {
+    margin-left: 42px;
+  }
+  .price__repair-service {
+    display: none;
+    background-color: black;
+  }
+  .upper-menu__right_contacts {
+    display: none;
+  }
+  .divider {
+    display: none;
+  }
+  #nav-button {
+    margin-right: 16px;
+  }
+  .about__description {
+    margin-bottom: 16px;
+  }
+  .price {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin: 0;
+  }
+  .price__title {
+    margin-top: 50px;
+    border-top: 1px solid #D9FFF5;
+    padding: 16px;
+    background-image: linear-gradient(#F8F8F8, #FFFFFF);
+    width: 100%;
+  }
+  .price__additionally {
+    padding-top: 12px;
+    width: 288px;
+  }
+  .price-media {
+    display: grid;
+  }
+  .price-media .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .price-media__list {
+    display: flex;
+  }
+  .price-media__list_item {
+    display: block;
+    position: relative;
+    width: 260px;
+    height: 200px;
+    margin: 0;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+  }
+  .price-media__list_item_service {
+    margin: 16px;
+    padding-top: 8px;
+  }
+  .price-media__list_item_price {
+    margin: 16px;
+  }
+  .price-media__list_item_date {
+    margin: 16px;
+  }
+  .price-media__list_item p {
+    display: block;
+    font-family: TT Lakes;
+    color: #7E7E82;
+    line-height: 18px;
+    letter-spacing: 0;
+    padding: 0;
+    margin-bottom: 4px;
+  }
+  .price-media__list_item span {
+    display: block;
+    font-family: TT Lakes;
+    color: #1B1C21;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+  }
+  .price-media__list_item .order {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+  }
+  footer .copyright {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  footer .privacy {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  footer .public-offer {
+    width: 100%;
+    text-align: center;
+  }
+  main {
+    margin-right: 0;
+    left: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
