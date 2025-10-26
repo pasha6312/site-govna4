@@ -373,6 +373,9 @@ button:focus  {
       color: #7E7E82;
     }
     &:hover{
+      padding: 16px 14px;
+      line-height: 36px;
+      height: 36px;
       border: 2px solid #B8FFEC;
       border-radius: 6px;
       background-color: #FFFFFF;
